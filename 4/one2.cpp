@@ -36,7 +36,7 @@ class Graph{
     std::vector<Node> vertices;
     int count;
   public:
-    Graph() : count{0} {}
+    Graph() : count{0}, vertices{std::vector<Node>(6)} {}
 
     void addNode(Node);
     std::vector<Node> getNodes() const{ return vertices; }
@@ -99,7 +99,7 @@ bool search(Graph g, Node start, Node end){
 int main(){
     Graph g = createNewGraph();
     std::vector<Node> n = g.getNodes();
-    Node start = n[3];
-    Node end = n[5];
-    std::cout << search(g, start, end);
+    Node start = n[2];
+    Node end = n[1];
+    std::cout << search(g, start, end) << '\n';
 }

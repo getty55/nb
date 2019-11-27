@@ -3,9 +3,10 @@
 #include <queue>
 
 class Graph{
+    public:
     int vertices;
     std::vector<int>* adj;
-  public:
+  
     Graph(int);
     void addEdge(int, int);
     bool isRoute(int, int);
@@ -36,7 +37,8 @@ bool Graph::isRoute(int x, int y){
 
 int main(){
     Graph g(6);
-    g.addEdge(5, 2);
+    std::cout << g.adj->size() << '\n';
+    /*g.addEdge(5, 2);
     g.addEdge(5, 0);
     g.addEdge(4, 0);
     g.addEdge(4, 1);
@@ -44,5 +46,5 @@ int main(){
     g.addEdge(3, 1);
 
     std::cout << g.isRoute(5, 4) << '\n';
-    std::cout << g.isRoute(5, 1) << '\n';
+    std::cout << g.isRoute(5, 1) << '\n';*/
 }
