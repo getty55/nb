@@ -54,33 +54,32 @@ std::vector<LinkedList<int>*> createLists(TreeNode* root){
     
     if (root){
         current = new LinkedList<int>(root->getData());
-        curr = new LinkedList<TreeNode*>(root);
-        
+        curr = new LinkedList<TreeNode*>(root); //std::cout << curr->data->getData() << '\n';        
     }
 
-    while (curr){ std::cout << "cc " << curr->data->getData() << '\n';
+    while (curr->data){
         result.push_back(current);
         c = curr;
-        LinkedList<TreeNode*>* parents = c;
-        LinkedList<TreeNode*>* curr; if (!curr) std::cout << "empty\n";
-        //c = curr;
-        LinkedList<int>* current;
+        LinkedList<TreeNode*>* parents = c; //std::cout << "pa " << parents->data->getData() << '\n';
+        curr = nullptr; //if (!curr) std::cout << "empty\n";
+        current = nullptr;
         
-        while (parents) {
-            if (parents->data->getLeft()){
-                current = new LinkedList<int>(parents->data->getLeft()->getData());
-                current = current->next;
-                curr = new LinkedList<TreeNode*>(parents->data->getLeft()); std::cout << "l " << curr->data->getData() << '\n';
-                curr = curr->next;
-            }
-            if (parents->data->getRight()){
-                current = new LinkedList<int>(parents->data->getRight()->getData());
-                current = current->next;
-                curr = new LinkedList<TreeNode*>(parents->data->getRight()); std::cout << "r " << curr->data->getData() << '\n';
-                curr = curr->next;
-            }
-            if (parents->next) parents = parents->next;
-            else break;
+        if (parents->data->getLeft()){ std::cout << "pal " << parents->data->getData() << '\n';
+            current = new LinkedList<int>(parents->data->getLeft()->getData());
+            //current = current->next;
+            curr = new LinkedList<TreeNode*>(parents->data->getLeft()); //std::cout << "l " << curr->data->getData() << '\n';
+            //if (curr->next) curr = curr->next;
+        }
+        if (parents->data->getRight()){ std::cout << "par " << parents->data->getData() << '\n';
+            current = new LinkedList<int>(parents->data->getRight()->getData());
+            //current = current->next;
+            curr = new LinkedList<TreeNode*>(parents->data->getRight()); //std::cout << "r " << curr->data->getData() << '\n';
+            //if (curr->next) curr = curr->next;
+        }
+        if (!parents->data->getLeft() && !parents->data->getRight()){
+            //current = new LinkedList<int>(pa)
+            std::cout << "h\n";
+            curr->data = nullptr;
         }
     }
     return result;
@@ -89,12 +88,12 @@ std::vector<LinkedList<int>*> createLists(TreeNode* root){
 int main(){
     auto t = createTree();
     auto a = createLists(t);
-    std::cout << a.size() << '\n';
-    for (auto aa : a) {
+    //std::cout << a.size() << '\n';
+    /*for (auto aa : a) {
         while (aa){
             std::cout << aa->data << " ";
             aa = aa->next;
         }
         std::cout << '\n';
-    }
+    }*/
 }
