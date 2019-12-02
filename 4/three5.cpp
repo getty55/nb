@@ -42,12 +42,13 @@ void DFSMakeLists(TreeNode* root, std::vector<std::list<TreeNode*>*>& lists, int
     if (!root) return;
     std::list<TreeNode*>* list;
     if (lists.size() == level){
+        std::cout<<"hh\n";
         list = new std::list<TreeNode*>();
         lists.push_back(list); 
     }
     else {
-        std::cout << lists.size() << " " << level << '\n';
-        list = lists[level];
+        std::cout << "h\n";
+        list = lists[level];    
     }
 
     list->push_back(root);
