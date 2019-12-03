@@ -29,11 +29,11 @@ void TreeNode::setRightChild(TreeNode* r){
 TreeNode* createTree(){
     TreeNode* root = new TreeNode(1);
     root->setLeftChild(new TreeNode(2));
-    root->setRightChild(new TreeNode(6));
+    root->setRightChild(new TreeNode(2));
     root->getLeft()->setLeftChild(new TreeNode(3));
-    root->getRight()->setRightChild(new TreeNode(3));
+    //root->getRight()->setRightChild(new TreeNode(3));
     root->getLeft()->getLeft()->setLeftChild(new TreeNode(4));
-    root->getRight()->getRight()->setRightChild(new TreeNode(4));
+    //root->getRight()->getRight()->setRightChild(new TreeNode(4));
     return root;
 }
 
